@@ -19,17 +19,24 @@ void Compte::retrait(double montant){
     }
 }
 
+void Compte::virement(double montant, Compte& compte){
+    if (montant <= _solde) {
+        _solde -= montant;
+        std::cout << "Virement de " << montant << " EUR réalisé avec succès vers numero de compte : " << std::endl;
+        compte.afficherNumCompte();
+        compte.depot(montant);
+    }
+    else {
+        std::cout << "Fonds insuffisants pour effectuer le virement de " << montant << " EUR vers numero de compte :" << std::endl;
+        compte.afficherNumCompte();
+    }
+}
+
 void Compte::afficherSolde() const {
     std::cout << "Solde du compte " << _numeroCompte << " : " << _solde << " EUR." << std::endl;
 }
 
-// void Compte::virement(std::string numeroCompte, double montant){
-//     if (montant <= _solde) {
-//         _solde -= montant;
-//         std::cout << "Virement de " << montant << " réalisé avec succès vers le compte " << numeroCompte << std::endl
-//                   << "Nouveau solde : " << _solde << std::endl;
-//     }
-//     else {
-//         std::cout << "Fonds insuffisants pour effectuer le virement de " << montant << std::endl;
-//     }
-// }
+void Compte::afficherNumCompte() const {
+    std::cout << _numeroCompte << std::endl;
+}
+

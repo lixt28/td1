@@ -10,8 +10,9 @@ class Compte{
 
     void depot(double montant);
     void retrait(double montant);
+    void virement(double montant, Compte& compte);
     void afficherSolde() const;
-    //void virement(std::string numeroCompte, double montant);
+    void afficherNumCompte() const;
 
     private:
     std::string _numeroCompte;
