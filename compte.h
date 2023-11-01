@@ -1,5 +1,5 @@
-//#ifndef CLIENT_H
-//#define CLIENT_H
+#ifndef COMPTE_H
+#define COMPTE_H
 
 #include <string>
 #include "client.h"
@@ -13,11 +13,15 @@ class Compte{
     void virement(double montant, Compte& compte);
     void afficherSolde() const;
     void afficherNumCompte() const;
+    double GetSolde() const ;
 
     private:
     std::string _numeroCompte;
     Client _client;
     double _solde;
+
+    protected:
+    void SetSolde(double solde);
 };
 
-//#endif
+#endif

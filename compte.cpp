@@ -33,10 +33,17 @@ void Compte::virement(double montant, Compte& compte){
 }
 
 void Compte::afficherSolde() const {
-    std::cout << "Solde du compte " << _numeroCompte << " : " << _solde << " EUR." << std::endl;
+    std::cout << "Solde du compte  " << _numeroCompte << " : " << _solde << " EUR." << std::endl;
 }
 
 void Compte::afficherNumCompte() const {
-    std::cout << _numeroCompte << std::endl;
+    std::cout <<"Numero de compte :"<< _numeroCompte << std::endl;
 }
 
+ double Compte::GetSolde() const {
+        return _solde;
+    }
+
+    void Compte::SetSolde(double solde) {
+        _solde = solde;
+    }
